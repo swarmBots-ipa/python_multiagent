@@ -42,7 +42,10 @@ class PolygonPose:
 
         # Add the first vertex again to close the polygon
         vertices.append((first_vertex_x, first_vertex_y))
-        return vertices[0:self.agents+1]
+        return vertices
+    
+    def get_target_poses(self):
+        return self.vertices[0:self.agents]
 
     def plot_vertices(self):
         """
@@ -69,8 +72,8 @@ def main():
     x = 0
     y = 0
     theta = math.pi/4  # 45 degrees in radians
-    agents = int(input("Enter the number of agents: "))
-    side_length = 2
+    agents = 4
+    side_length = 1
     polygon = PolygonPose(x, y, theta, agents, side_length)
 
     # Plot the vertices of the polygon
